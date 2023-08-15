@@ -1,0 +1,44 @@
+<message version="1" name="Credit-Control-Request" p-bit="yes" application-id="4" hop-by-hop-id="1" end-to-end-id="1">
+   <avp name="Session-Id" data="module-2.PTS2-BOG.sandvine.com;1287115741;0;0"/>
+   <avp name="Origin-Host" data="module-2.PTS2-BOG.sandvine.com"/>
+   <avp name="Origin-Realm" data="sandvine.com"/>
+   <avp name="Destination-Realm" data="telefonica.com.co"/>
+   <avp name="Auth-Application-Id" data="4"/>
+   <avp name="Service-Context-Id" data="770.32251@3gpp.org"/>
+   <avp name="CC-Request-Type" data="1" alias="INITIAL_REQUEST"/>
+   <avp name="CC-Request-Number" data="0"/>
+   <avp name="User-Name" data="50583211675"/>
+   <avp name="Origin-State-Id" data="1339077627"/>
+   <avp name="Event-Timestamp" data="3548171033"/>
+   <avp name="Subscription-Id">
+      <avp name="Subscription-Id-Type" data="0" alias="END_USER_E164"/>
+      <avp name="Subscription-Id-Data" data="50583211675"/>
+   </avp>
+   <avp name="Multiple-Services-Indicator" data="1" alias="MULTIPLE_SERVICES_SUPPORTED"/>
+   <avp name="User-Equipment-Info">
+      <avp name="User-Equipment-Info-Type" data="0" alias="IMEISV"/>
+      <avp name="User-Equipment-Info-Value" hex-data="33353430343630343130363438333030"/>
+   </avp>
+   <avp name="Service-Information">
+      <avp name="PS-Information">
+         <avp name="3GPP-Charging-Id" data="29"/>
+         <avp name="3GPP-PDP-Type" data="0" alias="IPV4"/>
+         <avp name="PDP-Address" data="10.193.49.133"/>
+         <avp name="3GPP-GPRS-Neg-QoS-Profile" data="05-1b921f7196fefe74fbfefe00"/>
+         <avp name="SGSN-Address" data="190.98.183.240"/>
+         <avp name="GGSN-Address" data="190.98.183.243"/>
+         <avp name="CG-Address" data="10.193.249.1"/>
+         <avp name="3GPP-IMSI-MCC-MNC" data="71204"/>
+         <avp name="3GPP-GGSN-MCC-MNC" data="71204"/>
+         <avp name="3GPP-NSAPI" data="5"/>
+         <avp name="Called-Station-Id" data="internet.movistar.ni"/>
+         <avp name="3GPP-Selection-Mode" data="0"/>
+         <avp name="3GPP-Charging-Characteristics" data="0800"/>
+         <avp name="3GPP-SGSN-MCC-MNC" data="33403"/>
+         <avp name="3GPP-MS-TimeZone" hex-data="4a00"/>
+         <avp name="3GPP-User-Location-Info" hex-data="0117f240a4780218"/>
+         <avp name="3GPP-Rat-Type" hex-data="01"/>
+         <avp name="PDP-Context-Type" data="0"/>
+      </avp>
+   </avp>
+</message>
