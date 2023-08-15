@@ -1,3 +1,4 @@
+/*
  ____________________________________________________________________
 |       _ _                      _            _              _       |
 |      | (_)                    | |          | |            | |      |
@@ -6,7 +7,7 @@
 |  | (_| | | (_| | | | | | |  __/ ||  __/ |  | || (_) | (_) | \__ \  |
 |   \__,_|_|\__,_|_| |_| |_|\___|\__\___|_|   \__\___/ \___/|_|___/  |
 |                                                                    |
-|____________________________________________________________________|
+| ___________________________________________________________________|
 
 C++ TOOLS FOCUSED ON DIAMETER PROTOCOL (RFC 6733)
 Version 0.0.z
@@ -33,3 +34,46 @@ AUTHORS  OR COPYRIGHT  HOLDERS  BE  LIABLE FOR  ANY  CLAIM,  DAMAGES OR  OTHER
 LIABILITY, WHETHER IN AN ACTION OF  CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE  OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+
+// C
+#include <libgen.h> // basename
+#include <signal.h>
+
+// Standard
+#include <iostream>
+#include <string>
+
+// Project
+#include <ert/tracing/Logger.hpp>
+
+
+const char* progname;
+
+
+void sighndl(int signal)
+{
+    std::cout << '\n';
+    LOGWARNING(ert::tracing::Logger::warning(ert::tracing::Logger::asString("Signal received: %d", signal), ERT_FILE_LOCATION));
+    switch (signal) {
+    case SIGTERM:
+    case SIGINT:
+        exit(1);
+    }
+}
+
+int main(int argc, char* argv[]) {
+
+    progname = basename(argv[0]);
+    ert::tracing::Logger::initialize(progname);
+    ert::tracing::Logger::verbose();
+
+    // Capture TERM/INT signals for graceful exit:
+    signal(SIGTERM, sighndl);
+    signal(SIGINT, sighndl);
+
+
+    return 0;
+}
+
