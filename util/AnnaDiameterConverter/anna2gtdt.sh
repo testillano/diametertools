@@ -40,6 +40,13 @@ EOF
 #############
 
 # Basic checkings
-[ -z "$1" ] && echo -e "\nUsage: $0 <xml file>\n" && exit 1
+[ -z "$1" ] && echo -e "\nUsage: $0 <xml file> [non-empty, to skip beautifier filter]\n" && exit 1
 [ ! -f "$1" ] && echo -e "\nFile '$1' not found !\n" && exit 1
-xml2json $1 | jsonBeautifier
+
+if [ -n "$2" ]
+then
+  xml2json $1
+else
+  xml2json $1 | jsonBeautifier
+fi
+

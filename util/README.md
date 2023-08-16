@@ -12,11 +12,10 @@ The conversion is valid for Anna-Diameter **messages** and also Anna-Diameter **
 
 ```bash
 $> cd util/AnnaDiameterConverter
-$> ./anna2gtdt.sh  ANNA_DIAMETER_MESSAGE__ccr.xml
+$> ./anna2gtdt.sh ANNA_DIAMETER_MESSAGE__ccr.xml
 ...
-$> ./anna2gtdt.sh  ANNA_DIAMETER_DICTIONARY__DictionaryRx.16777236.xml
+$> ./anna2gtdt.sh ANNA_DIAMETER_DICTIONARY__DictionaryRx.16777236.xml
 ...
 ```
 
-This project **never uses or log** `xml` data, but the script may be useful just in case some old format need to be translated to be used with tools developed in this repository:
-
+This project **never uses or log** `xml` data, but the script may be useful just in case some old format need to be translated to be used with tools developed in this repository.
