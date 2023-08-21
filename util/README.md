@@ -6,7 +6,7 @@
 
 The format used by our new project, [gtdt](https://github.com/testillano/diametertools) (aka, `github testillano diametertools`) is [json](https://www.json.org/json-en.html). So here we provide a bash script to convert the old ones.
 
-XML conversion is based on `xmltodict` python module, which translates `xml` attributes to `json` nodes by mean prefixing the keys with '@' character. In our case, it is not a handicap as we provide also `json` schema's taking this into account. And finally, there are some <u>adaptations for deprecated stuff that we renew according with RFC 6733</u>.
+XML conversion is based on `xmltodict` python module, which translates `xml` attributes to `json` nodes by mean prefixing the keys with '@' character. In our case, it is not a handicap as we provide also `json` schema's taking this into account, so we will remove the '@' symbol. And finally, there are some <u>adaptations for deprecated stuff that we renew according with RFC 6733</u>.
 
 The conversion is valid for Anna-Diameter **messages** and also Anna-Diameter **dictionaries**. Two `xml` example files are provided for those kind of Anna-Diameter resources, in order to play with them and check how the result looks. The bash script, also beautifies the resulting `json` to have a more compact output and improve readability:
 
