@@ -8,7 +8,10 @@
 xml2gtdt() {
   local python_code=$(cat << EOF
 import sys, xmltodict, json, re
-with open(sys.argv[1]) as fd: xml_data = xmltodict.parse(fd.read())
+
+# We will force list for some nodes; if not, for example, a grouped avp with single element would be translated as object not as array.
+# That makes the schema more difficult (bigger).
+with open(sys.argv[1]) as fd: xml_data = xmltodict.parse(fd.read(), force_list=("avp", "vendor", "avprule", "label", "command"))
 
 # Firstly, we will remove '@' in every key:
 def rename_keys(d, transformation_func):
@@ -43,6 +46,8 @@ rename_keys(xml_data, remove_leading_arroba)
 # 4) Command p-bit is missing in Anna dictionaries (mistake), but it would be removed anyway in the
 #    algorithm confused with encrypt AVP bit. This PXY bit will be set later, fixing the problem
 #    with xml dictionaries.
+# 5) code will be integer, not string
+# 6) avprule "id" will be "name"
 
 def process_keys(d):
   keys_to_process = list(d.keys())
@@ -62,7 +67,9 @@ def process_keys(d):
         d[key] = d.get(key)
         if(d[key] == "must"): d[key] = True
         if(d[key] == "mustnot"): d[key] = False
+        if(key == "code"): d[key] = int(d.get(key))
         if(key == "format-name"): d["format"] = d.pop(key)
+        elif(key == "id"): d["name"] = d.pop(key)
         elif(key == "type"):
           if (d[key] == "Request"):
             d["r-bit"] = True
@@ -95,11 +102,14 @@ if dictionary:
   applicationId = numbers[0]
 
   xml_data = dictionary
-  xml_data["application-id"] = applicationId
+  # new dictionary allow multiple application-id's: set them in command (if not, it will be 0)
+  #xml_data["application-id"] = applicationId
 
   for command in xml_data["command"]:
     code = command["code"]
-    if code != "257" and code != "280" and code != "282": command["p-bit"] = True
+    if code != 257 and code != 280 and code != 282:
+      command["p-bit"] = True
+      command["application-id"] = applicationId
 
 elif message:
   xml_data = message
