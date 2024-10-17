@@ -6,7 +6,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/testillano/diametertools/graphs/commit-activity)
 [![Main project workflow](https://github.com/testillano/diametertools/actions/workflows/ci.yml/badge.svg)](https://github.com/testillano/diametertools/actions/workflows/ci.yml)
 
-This library encodes/decodes diameter messages based in Diameter Protocol (RFC 6733).
+C++ tools focused on Diameter Protocol.
 
 ## Project image
 
