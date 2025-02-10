@@ -5,6 +5,7 @@
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/testillano)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/testillano/diametertools/graphs/commit-activity)
 [![Main project workflow](https://github.com/testillano/diametertools/actions/workflows/ci.yml/badge.svg)](https://github.com/testillano/diametertools/actions/workflows/ci.yml)
+[![Docker Pulls](https://img.shields.io/docker/pulls/testillano/diametertools.svg)](https://github.com/testillano/diametertools/pkgs/container/diametertools)
 
 C++ tools focused on Diameter Protocol.
 
